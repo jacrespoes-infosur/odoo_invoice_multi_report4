@@ -1,5 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-  <?xml version="1.0" encoding="UTF-8"?>
+
   <template id="report_invoice_ticket_template">
     <t t-call="web.html_container">
       <t t-call-assets="invoice_multi_report.ticket_css"/>
@@ -75,5 +76,6 @@
     attachment_use="False"
   />
 </odoo>
+
 
 
