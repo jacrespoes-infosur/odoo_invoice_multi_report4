@@ -1,0 +1,63 @@
+<odoo>
+  <template id="report_invoice_a4_template">
+    <t t-call="web.external_layout">
+      <div class="page">
+        <div class="row">
+          <h2>Factura (A4) - <t t-esc="doc.name"/></h2>
+        </div>
+        <div>
+          <strong>Cliente:</strong> <t t-esc="doc.partner_id.name"/><br/>
+          <strong>Fecha:</strong> <t t-esc="doc.invoice_date or doc.date"/>
+        </div>
+        <table class="table table-sm mt16">
+          <thead>
+            <tr>
+              <th>Producto</th>
+              <th class="text-right">Cantidad</th>
+              <th class="text-right">Precio</th>
+              <th class="text-right">Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <t t-foreach="doc.invoice_line_ids" t-as="l">
+              <tr>
+                <td><t t-esc="l.product_id.display_name or l.name"/></td>
+                <td class="text-right"><t t-esc="l.quantity"/></td>
+                <td class="text-right"><t t-esc="l.price_unit"/></td>
+                <td class="text-right"><t t-esc="l.price_total"/></td>
+              </tr>
+            </t>
+          </tbody>
+        </table>
+        <div class="row mt16">
+          <div class="col-6"/>
+          <div class="col-6">
+            <table class="table table-sm">
+              <tr>
+                <td><strong>Subtotal</strong></td>
+                <td class="text-right"><t t-esc="doc.amount_untaxed"/></td>
+              </tr>
+              <tr>
+                <td><strong>Impuestos</strong></td>
+                <td class="text-right"><t t-esc="doc.amount_tax"/></td>
+              </tr>
+              <tr>
+                <td><strong>Total</strong></td>
+                <td class="text-right"><t t-esc="doc.amount_total"/></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </t>
+  </template>
+  <report
+    id="report_invoice_a4"
+    string="Factura A4"
+    model="account.move"
+    report_type="qweb-pdf"
+    name="invoice_multi_report.report_invoice_a4_template"
+    file="invoice_multi_report.report_invoice_a4_template"
+    attachment_use="False"
+  />
+</odoo>

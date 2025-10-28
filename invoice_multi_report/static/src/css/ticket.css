@@ -1,0 +1,14 @@
+/* ticket.css */
+.ticket-paper {
+  width: 78mm;
+  margin: 0;
+  padding: 6px;
+  font-family: "DejaVu Sans", "Arial", sans-serif;
+  font-size: 10px;
+}
+.ticket-header { text-align: center; }
+.ticket-lines { width: 100%; border-collapse: collapse; font-size: 10px; }
+.ticket-lines td, .ticket-lines th { padding: 2px 0; }
+.small { font-size: 9px; }
+.bold { font-weight: 700; }
+.right { text-align: right; }
