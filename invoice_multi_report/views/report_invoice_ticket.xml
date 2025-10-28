@@ -1,4 +1,5 @@
 <odoo>
+  <?xml version="1.0" encoding="UTF-8"?>
   <template id="report_invoice_ticket_template">
     <t t-call="web.html_container">
       <t t-call-assets="invoice_multi_report.ticket_css"/>
@@ -10,7 +11,7 @@
 
 <template id="ticket_css" name="Ticket CSS" inherit_id="">
     <style type="text/css">
-        /* Aquí pega todo el contenido de ticket.css */
+        /* AquÃ­ pega todo el contenido de ticket.css */
         .ticket-paper { width: 78mm; margin: 0; padding: 6px; font-family: "DejaVu Sans", "Arial", sans-serif; font-size: 10px; }
         .ticket-header { text-align: center; }
         .ticket-lines { width: 100%; border-collapse: collapse; font-size: 10px; }
@@ -74,4 +75,5 @@
     attachment_use="False"
   />
 </odoo>
+
 
